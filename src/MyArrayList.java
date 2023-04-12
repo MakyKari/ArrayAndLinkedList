@@ -5,21 +5,22 @@ public class MyArrayList<T> implements MyList<T>{
     private int size;
 
     public MyArrayList() {
-        this.data = new Object[64];
+        this.data = new Object[2];
         this.size = 0;
+    }
+    private void increaseCapacity(){
+        Object[] temp = new Object[size * 2];
+        for(int i = 0; i < size; i++) {
+            temp[i] = data[i];
+        }
+        data = temp;
     }
     @Override
     public void add(T element){
-        if(size < data.length){
-            data[size++] = element;
+        if(size >= data.length){
+            increaseCapacity();
         }
-        else{
-            Object[] temp = new Object[size * 2];
-            for(int i = 0; i < size; i++) {
-                temp[i] = data[i];
-            }
-            data = temp;
-        }
+        data[size++] = element;
     }
     @Override
     public T get(int index){
