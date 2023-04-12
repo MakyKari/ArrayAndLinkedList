@@ -17,7 +17,22 @@ public class Main {
         System.out.println(arrayList.size());
         System.out.println(arrayList.get(3));
         //System.out.println(arrayList.get(9)); returns Error
+        System.out.println("\n\n");
 
 
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+        linkedList.add(2);
+        linkedList.add(5);
+        linkedList.add(7);
+        linkedList.add(8);
+        linkedList.add(9);
+        linkedList.add(1);
+        linkedList.add(0);
+        for(int a : linkedList) System.out.print(a + " ");
+        System.out.println();
+
+        linkedList.remove(3);
+        //linkedList.remove(9); Return Error
+        for(int a : linkedList) System.out.print(a + " ");
     }
 }
