@@ -34,5 +34,8 @@ public class Main {
         linkedList.remove(3);
         //linkedList.remove(9); Return Error
         for(int a : linkedList) System.out.print(a + " ");
+        System.out.println();
+        System.out.println(linkedList.get(2));
+        System.out.println(linkedList.size());
     }
 }

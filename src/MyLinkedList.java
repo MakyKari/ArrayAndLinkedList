@@ -65,6 +65,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public Object get(int index) {
+        if(index >= size) throw new IndexOutOfBoundsException();
         Node temp = head;
         for(int i = 0; i < index; i++) temp = temp.next;
         return temp.data;
