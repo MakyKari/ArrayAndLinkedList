@@ -81,6 +81,11 @@ public class MyLinkedList<T> implements MyList<T> {
     public boolean remove(int index) {
         if(index >= size) throw new IndexOutOfBoundsException();
         size--;
+        if(index == 0){
+            head = head.next;
+            head.prev = null;
+            return true;
+        }
         Node temp = head;
         Node p;
         Node n;
@@ -96,7 +101,13 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public Object get(int index) {
+    public T remove(T item) {
+        remove(indexOf(item));
+        return item;
+    }
+
+    @Override
+    public T get(int index) {
         if(index >= size) throw new IndexOutOfBoundsException();
         Node temp = head;
         for(int i = 0; i < index; i++) temp = temp.next;
@@ -156,5 +167,17 @@ public class MyLinkedList<T> implements MyList<T> {
             temp = temp.prev;
         }
         return -1;
+    }
+
+    @Override
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
+    @Override
+    public void sort() {
+
     }
 }

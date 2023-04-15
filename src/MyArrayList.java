@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class MyArrayList<T> implements MyList<T>{
@@ -5,7 +7,7 @@ public class MyArrayList<T> implements MyList<T>{
     private int size;
 
     public MyArrayList() {
-        this.data = new Object[2];
+        this.data = new Object[64];
         this.size = 0;
     }
     private void increaseCapacity(){
@@ -52,6 +54,13 @@ public class MyArrayList<T> implements MyList<T>{
         size--;
         return true;
     }
+
+    @Override
+    public T remove(T item) {
+        remove(indexOf(item));
+        return item;
+    }
+
     @Override
     public int size(){
         return size;
@@ -98,5 +107,15 @@ public class MyArrayList<T> implements MyList<T>{
             if(data[i].equals(o)) return i;
         }
         return -1;
+    }
+
+    @Override
+    public void clear() {
+        data = new Object[64];
+        size = 0;
+    }
+
+    @Override
+    public void sort() {
     }
 }
