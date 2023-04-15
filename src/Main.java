@@ -39,6 +39,7 @@ public class Main {
         System.out.println("Sorted ArrayList: ");
         for (int a: arrayList) System.out.print(a + " ");
         System.out.println();
+        System.out.println();
         //System.out.println(arrayList.get(9)); returns Error
 
 
@@ -77,6 +78,10 @@ public class Main {
         System.out.println("First occurrence of 77: " + linkedList.indexOf(77));
         System.out.println("Last occurrence of 1: " + linkedList.lastIndexOf(1));
         System.out.println("Last occurrence of 77: " + linkedList.lastIndexOf(77));
+        linkedList.sort();
+        System.out.println("Sorted LinkedList: ");
+        for (int a: linkedList) System.out.print(a + " ");
+        System.out.println();
         System.out.println();
     }
 }
