@@ -43,13 +43,14 @@ public class MyArrayList<T> implements MyList<T>{
         return (T)data[index];
     }
     @Override
-    public void remove(int index) {
+    public boolean remove(int index) {
         if (index >= size) throw new IndexOutOfBoundsException();
         for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
         }
         data[size - 1] = null;
         size--;
+        return true;
     }
     @Override
     public int size(){
@@ -81,5 +82,21 @@ public class MyArrayList<T> implements MyList<T>{
         }
 
         return false;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        for(int i = 0; i < size; i++){
+            if(data[i].equals(o)) return i;
+        }
+        return -1;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        for(int i = size - 1; i >= 0; i--){
+            if(data[i].equals(o)) return i;
+        }
+        return -1;
     }
 }
