@@ -22,6 +22,21 @@ public class MyArrayList<T> implements MyList<T>{
         }
         data[size++] = element;
     }
+
+    @Override
+    public void add(T element, int index) {
+        size++;
+        if(size >= data.length){
+            increaseCapacity();
+        }
+        if(index >= size) throw new IndexOutOfBoundsException();
+
+        for(int i = size - 1; i >= index; i--){
+            data[i + 1] = data[i];
+        }
+        data[index] = element;
+    }
+
     @Override
     public T get(int index){
         if(index >= size) throw new IndexOutOfBoundsException();
@@ -57,5 +72,14 @@ public class MyArrayList<T> implements MyList<T>{
         public T next() {
             return get(index++);
         }
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        for(int i = 0; i < size; i++){
+            if(data[i].equals(o)) return true;
+        }
+
+        return false;
     }
 }

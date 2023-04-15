@@ -16,7 +16,16 @@ public class Main {
         for (int a: arrayList) System.out.print(a + " ");
 
         System.out.println("\n" + "Size of ArrayList: " + arrayList.size());
-        System.out.println("Getting 4th element " + arrayList.get(3) + "\n");
+        System.out.println("Getting 4th element " + arrayList.get(3));
+        System.out.println("Does ArrayList contains: 5? " + arrayList.contains(5));
+        System.out.println("Does ArrayList contains: 9? " + arrayList.contains(9));
+        arrayList.add(12,2);
+        System.out.println("inserting element 12 at position 3:");
+        for (int a: arrayList) System.out.print(a + " ");
+        System.out.println();
+
+        System.out.println("Does ArrayList contains: 9? " + arrayList.contains(9));
+        System.out.println();
         //System.out.println(arrayList.get(9)); returns Error
 
 
@@ -37,6 +46,12 @@ public class Main {
         System.out.print("LinkedList, after removal of 4th element, contains: ");
         for(int a : linkedList) System.out.print(a + " ");
         System.out.println("\n" + "Size of LinkedList: " + linkedList.size());
-        System.out.println("Getting 3rd element " + linkedList.get(2) + "\n");
+        System.out.println("Getting 3rd element " + linkedList.get(2));
+        System.out.println("Does LinkedList contains: 7? " + linkedList.contains(7));
+        System.out.println("Does LinkedList contains: 12? " + linkedList.contains(12));
+        linkedList.add(18,3);
+        System.out.println("inserting element 18 at position 4: ");
+        for (int a: linkedList) System.out.print(a + " ");
+        System.out.println();
     }
 }

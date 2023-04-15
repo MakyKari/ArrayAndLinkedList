@@ -47,6 +47,37 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
+    public void add(T element, int index) {
+        size++;
+        if(index >= size) throw new IndexOutOfBoundsException();
+        if(index == 0) {
+            Node temp = head;
+            head.prev = new Node(element);
+            head = head.prev;
+            head.next = temp;
+            return;
+        }
+        if(index == size - 1){
+            add(element);
+            return;
+        }
+
+        Node temp = head;
+        for(int i = 0; i < index - 1; i++){
+            temp = temp.next;
+        }
+        Node first = temp;
+        Node second = temp.next;
+        temp.next = new Node(element);
+        temp = temp.next;
+        temp.prev = first;
+        temp.next = second;
+        Node middle = temp;
+        temp = temp.next;
+        temp.prev = middle;
+    }
+
+    @Override
     public void remove(int index) {
         if(index >= size) throw new IndexOutOfBoundsException();
         size--;
@@ -94,5 +125,16 @@ public class MyLinkedList<T> implements MyList<T> {
             temp = temp.next;
             return data;
         }
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        Node temp = head;
+        while(temp != null){
+            if(temp.data.equals(o)) return true;
+            temp = temp.next;
+        }
+
+        return false;
     }
 }
