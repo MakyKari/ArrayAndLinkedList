@@ -1,8 +1,8 @@
 import java.util.Iterator;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList<T extends Comparable<T>> implements MyList<T>{
 
-    private class Node {
+    private class Node{
         T data;
         Node next;
         Node prev;
@@ -178,6 +178,18 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        Node first = head;
+        while(first != null){
+            Node second = head;
+            while(second.next != null){
+                if(second.data.compareTo(second.next.data) > 0){
+                    T temp = second.next.data;
+                    second.next.data = second.data;
+                    second.data = temp;
+                }
+                second = second.next;
+            }
+            first = first.next;
+        }
     }
 }
